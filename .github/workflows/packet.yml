@@ -1,0 +1,18 @@
+name: 'packet'
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+
+jobs:
+  project:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Packet Project
+      uses: displague/packet-project-action@v0.1.0
+      env:
+        PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
+    - name: Project Delete
+      uses: displague/packet-sweeper-action@v0.1.0
