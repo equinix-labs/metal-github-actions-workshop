@@ -17,8 +17,9 @@ jobs:
       env:
         PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
     - name: Use the Project ID (display it)
-      run: echo Packet Project "$PROJECT_NAME" has ID "$PROJECT_ID"
-      run: echo Just checking Packet Project "$projectName" has ID "$projectId"
+      run: |
+        echo Packet Project "$PROJECT_NAME" has ID "$PROJECT_ID"
+        echo Just checking Packet Project "$projectName" has ID "$projectId"
       env:
         PROJECT_ID: ${{ steps.packet-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.packet-project.outputs.projectName }}
