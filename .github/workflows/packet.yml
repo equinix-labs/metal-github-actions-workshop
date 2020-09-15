@@ -9,6 +9,8 @@ on:
 jobs:
   project:
     runs-on: ubuntu-latest
+    # TODO(displague) PACKET_AUTH_TOKEN should be defined once, globally
+    # TODO(displague) PROJECT_ID should also be globalized
     steps:
     - id: packet-project
       uses: displague/packet-project-action@v0.1.0
@@ -16,10 +18,12 @@ jobs:
         PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
     - name: Use the Project ID (display it)
       run: echo Packet Project "$PROJECT_NAME" has ID "$PROJECT_ID"
+      run: echo Just checking Packet Project "$projectName" has ID "$projectId"
       env:
-        PROJECT_ID: echo ${{ steps.packet-project.outputs.projectID }}
-        PROJECT_NAME: echo ${{ steps.packet-project.outputs.projectName }}
+        PROJECT_ID: ${{ steps.packet-project.outputs.projectID }}
+        PROJECT_NAME: ${{ steps.packet-project.outputs.projectName }}
     - name: Project Delete
       uses: displague/packet-sweeper-action@v0.1.0
       env:
+        PROJECT_ID: ${{ steps.packet-project.outputs.projectID }}
         PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
