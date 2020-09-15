@@ -10,9 +10,16 @@ jobs:
   project:
     runs-on: ubuntu-latest
     steps:
-    - name: Packet Project
+    - id: packet-project
       uses: displague/packet-project-action@v0.1.0
       env:
         PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
+    - name: Use the Project ID (display it)
+      run: echo Packet Project "$PROJECT_NAME" has ID "$PROJECT_ID"
+      env:
+        PROJECT_ID: echo ${{ steps.packet-project.outputs.projectID }}
+        PROJECT_NAME: echo ${{ steps.packet-project.outputs.projectName }}
     - name: Project Delete
       uses: displague/packet-sweeper-action@v0.1.0
+      env:
+        PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
