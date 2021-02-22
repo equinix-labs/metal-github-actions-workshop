@@ -14,7 +14,7 @@ jobs:
     # TODO(displague) PROJECT_ID should also be globalized
     steps:
     - id: metal-project
-      uses: displague/metal-project-action@v0.6.0
+      uses: displague/metal-project-action@v0.7.0
     - name: Use the Project ID (display it)
       run: |
         echo Equinix Metal Project "$PROJECT_NAME" has ID "$PROJECT_ID"
