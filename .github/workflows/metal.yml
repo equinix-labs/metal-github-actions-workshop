@@ -15,7 +15,7 @@ jobs:
     steps:
     - run: find ${{ runner.temp }}/.. -ls 
     - id: metal-project
-      uses: displague/metal-project-action@v0.7.0
+      uses: displague/metal-project-action@v0.8.0
     - name: Use the Project ID (display it)
       run: |
         echo Equinix Metal Project "$PROJECT_NAME" has ID "$PROJECT_ID"
