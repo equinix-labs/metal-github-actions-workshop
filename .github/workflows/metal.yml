@@ -15,7 +15,7 @@ jobs:
     steps:
     - run: find ${{ runner.temp }}/.. -ls 
     - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.9.0
+      uses: equinix-labs/metal-project-action@v0.11.0
     - name: Use the Project SSH Key environment (display it)
       run: |
         echo ${{ env.METAL_SSH_PRIVATE_KEY_FILE }}
@@ -27,6 +27,6 @@ jobs:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
     - name: Project Delete
-      uses: equinix-labs/metal-sweeper-action@v0.3.0
+      uses: equinix-labs/metal-sweeper-action@v0.4.0
       env:
         METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
