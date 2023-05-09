@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     # TODO(displague) PROJECT_ID should also be globalized
     steps:
-    - run: find ${{ runner.temp }}/.. -ls 
     - id: metal-project
       uses: equinix-labs/metal-project-action@v0.11.0
     - name: Use the Project SSH Key environment (display it)
