@@ -6,8 +6,8 @@ Example of Equinix Metal Github Actions for creating and clearing [Equinix Metal
 
 This project demonstrates the use of two Github Actions:
 
-* <https://github.com/displague/metal-project-action>
-* <https://github.com/displague/metal-sweeper-action>
+* <https://github.com/equinix-labs/metal-project-action>
+* <https://github.com/equinix-labs/metal-sweeper-action>
 
 The `.github/workflows/metal.yml` workflow invokes these two actions to first create an Equinix Metal project, and then to delete that project.
 
@@ -20,19 +20,19 @@ name: 'metal'
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
 
 jobs:
   project:
     runs-on: ubuntu-latest
-    # TODO(displague) PACKET_AUTH_TOKEN should be defined once, globally
+    # TODO(displague) METAL_AUTH_TOKEN should be defined once, globally
     # TODO(displague) PROJECT_ID should also be globalized
     steps:
     - id: metal-project
-      uses: displague/metal-project-action@v0.4.0
+      uses: equinix-labs/metal-project-action@v0.4.0
       env:
-        PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
+        METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
     - name: Use the Project ID (display it)
       run: |
         echo Equinix Metal Project "$PROJECT_NAME" has ID "$PROJECT_ID"
@@ -40,10 +40,10 @@ jobs:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
     - name: Project Delete
-      uses: displague/metal-sweeper-action@v0.2.0
+      uses: equinix-labs/metal-sweeper-action@v0.2.0
       env:
-        PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
-        PACKET_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
+        METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
+        METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
 ```
 
 ## Reasons
@@ -62,4 +62,4 @@ There are a number of benefits to using an ephemeral token with least privilege,
 * The Project Key can be disposed of with the disposal of the project
 * Leaked project keys have a narrow window of usability and minimized splash radius
 
-In [this example project](https://github.com/displague/metal-actions-example/), we take advantage of a Github Workflow that creates a random project, performs some project specific tasks, and then deletes the project. This workflow (and the "metal-project-action" which creates the project) benefit from the ability to generate and exchange a powerful (and therefor dangerous) user API token with a confined and less-dangerous project API token for the Github actions that should be confined to work within the generated project.
+In [this example project](https://github.com/equinix-labs/metal-actions-example/), we take advantage of a Github Workflow that creates a random project, performs some project specific tasks, and then deletes the project. This workflow (and the "metal-project-action" which creates the project) benefit from the ability to generate and exchange a powerful (and therefor dangerous) user API token with a confined and less-dangerous project API token for the Github actions that should be confined to work within the generated project.
