@@ -9,7 +9,7 @@ on:
 jobs:
   project:
     env:
-      METAL_AUTH_TOKEN: ${{ secrets.PACKET_AUTH_TOKEN }}
+      METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
     runs-on: ubuntu-latest
     # TODO(displague) PROJECT_ID should also be globalized
     steps:
