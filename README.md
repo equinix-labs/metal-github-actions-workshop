@@ -30,7 +30,7 @@ jobs:
     # TODO(displague) PROJECT_ID should also be globalized
     steps:
     - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.4.0
+      uses: equinix-labs/metal-project-action@v0.11.0
       env:
         METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
     - name: Use the Project ID (display it)
@@ -40,8 +40,8 @@ jobs:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
     - name: Project Delete
-      uses: equinix-labs/metal-sweeper-action@v0.2.0
-      env:
+      uses: equinix-labs/metal-sweeper-action@v0.4.0
+      with:
         METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
 ```
