@@ -1,0 +1,76 @@
+site_name: "Workshop: Equinix Labs"
+
+repo_url: https://github.com/equinix-labs/equinix-labs-workshop
+repo_name: equinix-labs/equinix-labs-workshop
+edit_uri: blob/main/docs
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Introduction: index.md
+
+  - Parts:
+      - 1. Part 1: parts/part1.md
+      - 2. Part 2: parts/part2.md
+      - 3. Part 3: parts/part3.md
+
+  - Conclusion: parts/conclusion.md
+
+theme:
+  name: material
+
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  icon:
+    logo: simple/equinixmetal
+  favicon: images/favicon.svg
+
+  features:
+    - navigation.top
+    - search.highlight
+    - navigation.footer
+    - content.code.copy
+    - navigation.expand
+
+extra:
+  social:
+    - icon: simple/equinixmetal
+      link: https://deploy.equinix.com
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/@equinixmetal
+    - icon: fontawesome/brands/github
+      link: https://github.com/equinix-labs
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@EquinixDevelopers
+
+plugins:
+  - search
+  - glightbox
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.superfences
+  - pymdownx.keys

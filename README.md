@@ -1,3 +1,15 @@
+# Workshop: Equinix Labs
+
+<!---
+Using this template in a new project? See CONTIBUTING.md for help.
+--->
+
+This repo contains instructions for the ["Equinix Labs" workshop](https://equinix-labs.github.io/equinix-labs-workshop).
+
+To view the workshop, visit <https://equinix-labs.github.io/equinix-labs-workshop>
+
+TODO: Below is the original README of the repo; this should go away in favor of the workshop content
+
 # metal-actions-example
 
 Example of Equinix Metal Github Actions for creating and clearing [Equinix Metal](https://metal.equinix.com) Projects.
