@@ -11,10 +11,9 @@ jobs:
     env:
       METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
     runs-on: ubuntu-latest
-    # TODO(displague) PROJECT_ID should also be globalized
     steps:
     - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.11.0
+      uses: equinix-labs/metal-project-action@v0.12.0
     - name: Use the Project SSH Key environment (display it)
       run: |
         echo ${{ env.METAL_SSH_PRIVATE_KEY_FILE }}
@@ -26,6 +25,6 @@ jobs:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
     - name: Project Delete
-      uses: equinix-labs/metal-sweeper-action@v0.4.0
+      uses: equinix-labs/metal-sweeper-action@v0.5.0
       env:
         METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
