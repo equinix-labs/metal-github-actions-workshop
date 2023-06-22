@@ -12,9 +12,11 @@ This workshop demonstrates the use of three Github Actions:
 * <https://github.com/equinix-labs/metal-device-action>
 * <https://github.com/equinix-labs/metal-sweeper-action>
 
-The goals of this workshop are:
+The goal of this workshop is to create and run a GitHub Actions workflow that will:
 
-* Create a GitHub Actions workflow that creates a project, provisions a device, and then deletes the project & device
+* create a project
+* provisions a device in the project
+* delete the project & device
 
 ## Workshop agenda
 
@@ -23,5 +25,5 @@ This workshop is split into two parts:
 | Part | Title | Duration |
 | - | - | - |
 | 1 | Setup | 10 minutes |
-| 2 | Execute a GitHub Actions workflow | 8 minutes |
+| 2 | Create & Run GitHub Actions Workflow | 10 minutes |
 
