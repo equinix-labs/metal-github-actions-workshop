@@ -21,7 +21,7 @@ When your repository is created, you will land on the default web page for the n
 Copy and paste the yaml below into the text box on that page:
 
 ```yaml
-name: 'metal'
+name: 'metal-actions-example'
 
 on:
   push:
@@ -67,7 +67,7 @@ This GitHub Action is configured with a `push` trigger and a `pull_request` trig
 
 ### 3. Configure the `METAL_AUTH_TOKEN` GitHub Actions secret for your repository
 
-In order to run our new GitHub Actions workflow, we need to tell GitHub Actions what API token to use for interactions with the Equinix Metal API.  The token we will use is the one you created in [part 1](./part1.md)
+In order to run our new GitHub Actions workflow, we need to tell GitHub Actions what API token to use for interactions with the Equinix Metal API.  The token we will use is the user-level API token you created in [step 2 of part 1](./part1.md#2-create-an-api-key)
 
 Click the `Settings` tab to navigate to the settings page for your repository.
 
@@ -77,9 +77,9 @@ Click the `New repository secret` button.  In the name field, type `METAL_AUTH_T
 
 ### 4. Run the GitHub Actions workflow
 
-Now that your action is created and the `METAL_AUTH_TOKEN` secret is defined, you are ready to run your GitHub Actions workflow.  Click the `Actions` tab.  On your repository's Actions page, click the `metal` action on the left-hand side.  You should see a failed run of the workflow; click the commit message link to view the workflow logs, then click the "Re-run failed jobs" button to re-run the workflow.
+Now that your action is created and the `METAL_AUTH_TOKEN` secret is defined, you are ready to run your GitHub Actions workflow.  Click the `Actions` tab.  On your repository's Actions page, click the `metal-actions-example` action on the left-hand side.  You should see a failed run of the workflow; click the commit message link to view the workflow logs, then click the "Re-run failed jobs" button to re-run the workflow.
 
-### 3. Verify
+### 5. Verify
 
 When you click "Re-run failed jobs," the workflow will restart, and this time it will use the `METAL_AUTH_TOKEN` secret you defined earlier.  If your token is configured correctly, the workflow will pass and you can look at the workflow logs to see what the workflow did.
 

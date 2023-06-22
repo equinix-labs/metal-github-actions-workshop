@@ -15,7 +15,7 @@ This workshop demonstrates the use of three Github Actions:
 The goal of this workshop is to create and run a GitHub Actions workflow that will:
 
 * create a project
-* provisions a device in the project
+* provision a device in the project
 * delete the project & device
 
 ## Workshop agenda
