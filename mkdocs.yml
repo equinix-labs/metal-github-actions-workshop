@@ -11,8 +11,8 @@ nav:
   - Introduction: index.md
 
   - Parts:
-      - 1. Part 1: parts/part1.md
-      - 2. Part 2: parts/part2.md
+      - 1. Setup: parts/part1.md
+      - 2. Create & Run GitHub Actions Workflow: parts/part2.md
 
   - Conclusion: parts/conclusion.md
 
