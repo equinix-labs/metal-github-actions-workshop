@@ -6,20 +6,22 @@ Equinix Labs offers workshops, proof of concepts, and tools for exploring and bo
 
 ## About the workshop
 
+This workshop demonstrates the use of three Github Actions:
+
+* <https://github.com/equinix-labs/metal-project-action>
+* <https://github.com/equinix-labs/metal-device-action>
+* <https://github.com/equinix-labs/metal-sweeper-action>
+
 The goals of this workshop are:
 
-* Become familiar with the Equinix digital infrastructure
-* Provision the infrastructure services
-* Start and test out a sample application.
+* Create a GitHub Actions workflow that creates a project, provisions a device, and then deletes the project & device
 
 ## Workshop agenda
 
-This workshop is split into four parts:
+This workshop is split into two parts:
 
 | Part | Title | Duration |
 | - | - | - |
 | 1 | Setup | 10 minutes |
-| 2 | Provisioning | 10 minutes |
-| 3 | Application | 8 minutes |
-| 4 | Conclusion | 2 minutes |
+| 2 | Execute a GitHub Actions workflow | 8 minutes |
 

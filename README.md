@@ -10,54 +10,6 @@ To view the workshop, visit <https://equinix-labs.github.io/equinix-labs-worksho
 
 TODO: Below is the original README of the repo; this should go away in favor of the workshop content
 
-# metal-actions-example
-
-Example of Equinix Metal Github Actions for creating and clearing [Equinix Metal](https://metal.equinix.com) Projects.
-
-## Actions
-
-This project demonstrates the use of two Github Actions:
-
-* <https://github.com/equinix-labs/metal-project-action>
-* <https://github.com/equinix-labs/metal-sweeper-action>
-
-The `.github/workflows/metal.yml` workflow invokes these two actions to first create an Equinix Metal project, and then to delete that project.
-
-The project id is emitted before the project is deleted. This is where a CI/CD workflow could be inserted that takes advantage of this project.
-And resources created in that project, not cleanly disposed of by the inserted tools, will be removed by the Equinix Metal Sweeper action.
-
-```yaml
-name: 'metal'
-
-on:
-  push:
-    branches:
-    - main
-  pull_request:
-
-jobs:
-  project:
-    runs-on: ubuntu-latest
-    # TODO(displague) METAL_AUTH_TOKEN should be defined once, globally
-    # TODO(displague) PROJECT_ID should also be globalized
-    steps:
-    - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.11.0
-      env:
-        METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
-    - name: Use the Project ID (display it)
-      run: |
-        echo Equinix Metal Project "$PROJECT_NAME" has ID "$PROJECT_ID"
-      env:
-        PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
-        PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
-    - name: Project Delete
-      uses: equinix-labs/metal-sweeper-action@v0.4.0
-      with:
-        METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
-        METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
-```
-
 ## Reasons
 
 Automation workflows on Equinix Metal can benefit from from creating Project API Keys from the Equinix Metal API with a seed User API Key.
