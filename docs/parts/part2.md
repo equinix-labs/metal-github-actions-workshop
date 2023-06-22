@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.12.0
+      uses: equinix-labs/metal-project-action@v0.12.1
     - name: Use the Project SSH Key environment (display it)
       run: |
         echo ${{ env.METAL_SSH_PRIVATE_KEY_FILE }}
@@ -47,6 +47,14 @@ jobs:
       env:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
+    - name: Create a device in the project
+      uses: equinix-labs/metal-device-action@0.1.0
+      with:
+        metal_auth_token: ${{ steps.metal-project.outputs.projectAPIKey }}
+        metal_project_id: ${{ steps.metal-project.outputs.projectID }}
+        metro: da
+        plan: m3.small.x86
+        os: ubuntu_22_04
     - name: Project Delete
       uses: equinix-labs/metal-sweeper-action@v0.5.0
       env:
