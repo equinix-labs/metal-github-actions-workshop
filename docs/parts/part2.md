@@ -5,7 +5,7 @@
 
 ### 1. Create a new GitHub repository
 
-Create a GitHub repository by clicking the following link: https://github.com/new?name=metal-github-actions-workshop
+Create a GitHub repository by clicking the following link: <https://github.com/new?name=metal-github-actions-workshop>
 
 The "Repository name" field will be pre-filled with `metal-github-actions-workshop`; if you prefer a different name feel free to change it.
 
