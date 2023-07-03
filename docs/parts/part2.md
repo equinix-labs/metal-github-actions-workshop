@@ -1,5 +1,5 @@
 <!-- See https://squidfunk.github.io/mkdocs-material/reference/ -->
-# Part 2: Create & Execute a GitHub Actions workflow
+# Part 2: Create a GitHub Actions workflow
 
 ## Steps
 
@@ -49,41 +49,44 @@ Copy and paste the yaml below into the text box on that page:
 name: 'metal-actions-example'
 
 on:
-  push:
-    branches:
-    - main
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   project:
-    env:
-      METAL_AUTH_TOKEN: ${{ secrets.METAL_AUTH_TOKEN }}
     runs-on: ubuntu-latest
     steps:
-    - id: metal-project
-      uses: equinix-labs/metal-project-action@v0.12.0
-    - name: Use the Project SSH Key environment (display it)
+    - name: Create temporary project
+      id: metal-project
+      uses: equinix-labs/metal-project-action@main
+      with:
+        userToken: ${{ secrets.METAL_AUTH_TOKEN }}
+    - name: Use the Project SSH Key outputs (display it)
       run: |
-        echo ${{ env.METAL_SSH_PRIVATE_KEY_FILE }}
-        echo $METAL_SSH_PUBLIC_KEY_FILE
+        echo $PROJECT_PRIVATE_SSH_KEY
+        echo $PROJECT_PUBLIC_SSH_KEY
+      env:
+        PROJECT_PRIVATE_SSH_KEY: ${{ steps.metal-project.outputs.projectSSHPrivateKeyBase64 }}
+        PROJECT_PUBLIC_SSH_KEY: ${{ steps.metal-project.outputs.projectSSHPublicKey }}
     - name: Use the Project ID outputs (display it)
       run: |
         echo Equinix Metal Project "$PROJECT_NAME" has ID "$PROJECT_ID"
       env:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
-    - name: Create a device in the project
-      uses: equinix-labs/metal-device-action@v0.1.0
+    - name: Create device in temporary project
+      uses: equinix-labs/metal-device-action@main
+      continue-on-error: true
       with:
         metal_auth_token: ${{ steps.metal-project.outputs.projectToken }}
         metal_project_id: ${{ steps.metal-project.outputs.projectID }}
         metro: da
         plan: m3.small.x86
         os: ubuntu_22_04
-    - name: Project Delete
-      uses: equinix-labs/metal-sweeper-action@v0.5.0
-      env:
-        METAL_PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
+    - name: Delete temporary project & device
+      uses: equinix-labs/metal-sweeper-action@main
+      with:
+        authToken: ${{ secrets.METAL_AUTH_TOKEN }}
+        projectID: ${{ steps.metal-project.outputs.projectID }}
 ```
 
 Click "Commit changes" to commit the GitHub Actions workflow to your repository (you may be prompted to click a second "Commit" button).
