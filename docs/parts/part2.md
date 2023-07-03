@@ -17,7 +17,7 @@ For the purposes of this workshop, the other form fields can be ignored.  Click 
 
 !["Create Repository" button](../images/create_repository_button.png)
 
-### 3. Configure the `METAL_AUTH_TOKEN` GitHub Actions secret for your repository
+### 2. Configure the `METAL_AUTH_TOKEN` GitHub Actions secret for your repository
 
 In order to run our GitHub Actions workflow, we need to tell GitHub Actions what API token to use for interactions with the Equinix Metal API.  The token we will use is the user-level API token you created in [step 2 of part 1](./part1.md#2-create-an-api-key)
 
@@ -33,7 +33,7 @@ Click the `New repository secret` button.  In the name field, type `METAL_AUTH_T
 
 ![Form for creating a GitHub Actions secret](../images/create_secret.png)
 
-### 2. Create a GitHub Actions workflow for your repository
+### 3. Create a GitHub Actions workflow for your repository
 
 Now that we have defined the `METAL_AUTH_TOKEN`, it's time to create and run our GitHub Actions workflow. Click the `Actions` tab to go to the GitHub Actions page for your repository.
 
@@ -90,18 +90,6 @@ jobs:
 ```
 
 Click "Commit changes" to commit the GitHub Actions workflow to your repository (you may be prompted to click a second "Commit" button).
-
-### 5. Verify
-
-This GitHub Actions workflow is configured with a `push` trigger and a `pull_request` trigger, so it will run automatically any time a commit is pushed to `main` and any time a Pull Request is opened.  This means that when you click "Commit changes" the workflow will run automatically.
-
-Click the `Actions` tab again.  You should see `metal-actions-example` on the left-hand side, and a running workflow on the right-hand side (if you used the default values when you clicked the "Commit" button, the workflow probably says "Create main.yaml").
-
-![GitHub Actions page showing a running workflow](../images/active_actions_tab.png)
-
-Click on the running workflow to see the workflow logs.
-
-![GitHub Actions page showing logs for a specific workflow](../images/action_logs.png)
 
 ## Discussion
 
