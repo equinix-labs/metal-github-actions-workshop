@@ -12,7 +12,8 @@ nav:
 
   - Parts:
       - 1. Setup: parts/part1.md
-      - 2. Create & Run GitHub Actions Workflow: parts/part2.md
+      - 2. Create GitHub Actions Workflow: parts/part2.md
+      - 3. Understanding Your GitHub Actions Workflow: parts/part3.md
 
   - Conclusion: parts/conclusion.md
 
