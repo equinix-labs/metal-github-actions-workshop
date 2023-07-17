@@ -31,8 +31,7 @@ After a few minutes the workflow should complete successfully.
 
 ### 2. Examine the workflow logs
 
-Looking at the logs for the completed workflow, we can see what actions the workflow performed and, if needed, modify those actions for different use cases.
-
+By looking at the logs for the completed GitHub Actions workflow, we can see what steps the workflow performed and think of ways to modify those steps for different use cases.
 
 #### 2.1. Creating a temporary project
 
