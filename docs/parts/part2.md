@@ -95,7 +95,6 @@ Click "Commit changes" to commit the GitHub Actions workflow to your repository 
 
 Before proceeding to the next part let's take a few minutes to discuss what we did. Here are some questions to start the discussion.
 
-* Can you run additional tests on Equinix Metal resources before deleting them?
-* What other events can trigger a GitHub Actions workflow?
-* What kind of Equinix Metal resources can you create in a GitHub Actions workflow?
+* Are there other ways to create a GitHub Actions workflow for your repository?
+* How do you decide whether to configure a GitHub Actions secret or a GitHub Actions variable?
 
