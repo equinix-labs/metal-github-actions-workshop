@@ -17,7 +17,7 @@ Click on `metal-actions-example` to see the details for that workflow
 
 Click on the `Run workflow` button, and then click on the green button in the popup that appears:
 
-![GitHub Actions popup to run a workflow](../images/run_workflow_popup.png.png)
+![GitHub Actions popup to run a workflow](../images/run_workflow_popup.png)
 
 After clicking the button, you may need to refresh the page to see the running workflow.  It should look like this:
 
