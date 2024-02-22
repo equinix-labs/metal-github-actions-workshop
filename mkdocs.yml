@@ -1,7 +1,7 @@
 site_name: "Workshop: Equinix Labs"
 
-repo_url: https://github.com/equinix-labs/equinix-labs-workshop
-repo_name: equinix-labs/equinix-labs-workshop
+repo_url: https://github.com/equinix-labs/metal-github-actions-workshop
+repo_name: equinix-labs/metal-github-actions-workshop
 edit_uri: blob/main/docs
 
 extra_css:
