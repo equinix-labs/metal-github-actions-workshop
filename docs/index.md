@@ -24,6 +24,6 @@ This workshop is split into two parts:
 
 | Part | Title | Duration |
 | - | - | - |
-| 1 | Setup | 10 minutes |
-| 2 | Create & Run GitHub Actions Workflow | 10 minutes |
-
+| 1 | [Setup](./parts/part1.md) | 10 minutes |
+| 2 | [Create a GitHub Actions workflow](./parts/part2.md) | 10 minutes |
+| 3 | [Understanding your GitHub Actions workflow](./parts/part3.md) | 10 minutes |

@@ -57,7 +57,7 @@ jobs:
     steps:
     - name: Create temporary project
       id: metal-project
-      uses: equinix-labs/metal-project-action@main
+      uses: equinix-labs/metal-project-action@v0.14.1
       with:
         userToken: ${{ secrets.METAL_AUTH_TOKEN }}
     - name: Use the Project SSH Key outputs (display it)
@@ -74,7 +74,7 @@ jobs:
         PROJECT_ID: ${{ steps.metal-project.outputs.projectID }}
         PROJECT_NAME: ${{ steps.metal-project.outputs.projectName }}
     - name: Create device in temporary project
-      uses: equinix-labs/metal-device-action@main
+      uses: equinix-labs/metal-device-action@v0.2.1
       continue-on-error: true
       with:
         metal_auth_token: ${{ steps.metal-project.outputs.projectToken }}
@@ -83,7 +83,7 @@ jobs:
         plan: m3.small.x86
         os: ubuntu_22_04
     - name: Delete temporary project & device
-      uses: equinix-labs/metal-sweeper-action@main
+      uses: equinix-labs/metal-sweeper-action@v0.6.1
       with:
         authToken: ${{ secrets.METAL_AUTH_TOKEN }}
         projectID: ${{ steps.metal-project.outputs.projectID }}
@@ -97,4 +97,3 @@ Before proceeding to the next part let's take a few minutes to discuss what we d
 
 * Are there other ways to create a GitHub Actions workflow for your repository?
 * How do you decide whether to configure a GitHub Actions secret or a GitHub Actions variable?
-

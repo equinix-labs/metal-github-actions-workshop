@@ -64,4 +64,3 @@ Before proceeding to the next part let's take a few minutes to discuss what we d
 * Can you run additional tests on Equinix Metal resources before deleting them?
 * What other events can trigger a GitHub Actions workflow?
 * What kind of Equinix Metal resources can you create in a GitHub Actions workflow?
-
